@@ -1,0 +1,34 @@
+site_name: SmartBuildSim
+site_description: "Synthetic smart building experimentation toolkit"
+site_dir: site
+nav:
+  - Home: index.md
+  - Quickstart: quickstart.md
+  - Reference:
+      - BIM schema: reference/bim.md
+      - Data generation: reference/data.md
+      - Feature engineering: reference/features.md
+      - Models:
+          - Overview: reference/models/index.md
+          - Forecasting: reference/models/forecasting.md
+          - Anomaly detection: reference/models/anomaly.md
+          - Clustering: reference/models/clustering.md
+          - Reinforcement learning: reference/models/rl.md
+      - Scenarios: reference/scenarios.md
+      - Command line interface: reference/cli.md
+      - Utilities: reference/utils.md
+      - Logging: reference/logging.md
+      - Visualisation: reference/viz.md
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+plugins:
+  - search
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true
+strict: true
