@@ -1,12 +1,14 @@
 <!-- Core status -->
 [![Docs](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://tymill.github.io/SmartBuildSim/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
+[![PyPI version](https://img.shields.io/pypi/v/smartbuildsim)](https://pypi.org/project/smartbuildsim/)
 <!-- Tech meta -->
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://github.com/TyMill/SmartBuildSim/blob/main/pyproject.toml)
 [![Code Style: Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://docs.astral.sh/ruff/)
 [![Type Checked: mypy](https://img.shields.io/badge/type%20checked-mypy-1f5081.svg)](https://mypy.readthedocs.io/)
 [![Tests: pytest](https://img.shields.io/badge/tests-pytest-0A9EDC.svg)](https://docs.pytest.org/)
+
+
 
 # SmartBuildSim
 
