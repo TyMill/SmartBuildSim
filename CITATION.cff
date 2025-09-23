@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "SmartBuildSim: A Synthetic-Twin Framework for AI-Ready Smart-Building Sensor Data, Forecasting, and Anomaly Detection"
+version: "v1.0.0"
+doi: 10.5281/zenodo.17187638
+date-released: "2025-09-23"
+authors:
+  - family-names: Miller
+    given-names: Tymoteusz
+repository-code: "https://github.com/TyMill/SmartBuildSim"
+license: MIT
+type: software
+message: "If you use this software, please cite it using the metadata above."
+keywords:
+  - smart buildings
+  - synthetic data
+  - BIM
+  - forecasting
+  - anomaly detection
+  - clustering
+  - reinforcement learning
+  - reproducibility
+preferred-citation:
+  type: software
+  title: "SmartBuildSim: A Synthetic-Twin Framework for AI-Ready Smart-Building Sensor Data, Forecasting, and Anomaly Detection"
+  authors:
+    - family-names: Miller
+      given-names: Tymoteusz
+  year: 2025
+  version: "v1.0.0"
+  doi: 10.5281/zenodo.17187638
+  url: "https://github.com/TyMill/SmartBuildSim"
