@@ -17,6 +17,3 @@ cluster:
     - cluster_co2
 viz:
   sensor: office_energy
-
-=======
-
