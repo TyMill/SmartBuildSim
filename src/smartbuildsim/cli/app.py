@@ -11,6 +11,7 @@ import typer
 
 from ..bim.loader import load_building, write_default_schema
 from ..bim.schema import Building
+from ..config import DeterminismConfig, configure_determinism
 from ..data.generator import DataGeneratorConfig, generate_and_save
 from ..models.anomaly import AnomalyDetectionConfig, detect_anomalies
 from ..models.clustering import ClusteringConfig, cluster_zones
@@ -95,6 +96,17 @@ def _maybe_mapping(value: object) -> dict[str, object] | None:
     return None
 
 
+def _configure_determinism_from_config(config: dict[str, object]) -> None:
+    """Initialise deterministic behaviour from the configuration mapping."""
+
+    section = _maybe_mapping(config.get("determinism"))
+    if section is not None:
+        determinism = model_from_mapping(DeterminismConfig, section)
+        configure_determinism(determinism, force=True)
+    else:
+        configure_determinism()
+
+
 def _load_dataset(path: Path) -> pd.DataFrame:
     """Read a dataset CSV with timestamp parsing."""
     data = pd.read_csv(path, parse_dates=["timestamp"])
@@ -138,6 +150,7 @@ def data_generate(
     """Generate deterministic synthetic data."""
 
     config = _load_config(config_path, overrides)
+    _configure_determinism_from_config(config)
     base_path = config_path.parent
     scenario = _resolve_scenario(config)
     building = _resolve_building(config, scenario, base_path)
@@ -181,6 +194,7 @@ def model_forecast(
     """Train and persist a forecasting model."""
 
     config = _load_config(config_path, overrides)
+    _configure_determinism_from_config(config)
     base_path = config_path.parent
     scenario = _resolve_scenario(config)
     dataset_path = _resolve_dataset_path(config, base_path, data_path)
@@ -217,6 +231,7 @@ def model_anomalies(
     """Run anomaly detection and persist the annotated dataset."""
 
     config = _load_config(config_path, overrides)
+    _configure_determinism_from_config(config)
     base_path = config_path.parent
     scenario = _resolve_scenario(config)
     dataset_path = _resolve_dataset_path(config, base_path, data_path)
@@ -247,6 +262,7 @@ def cluster_run(
     """Cluster building zones and write assignments to disk."""
 
     config = _load_config(config_path, overrides)
+    _configure_determinism_from_config(config)
     base_path = config_path.parent
     scenario = _resolve_scenario(config)
     dataset_path = _resolve_dataset_path(config, base_path, data_path)
@@ -272,6 +288,7 @@ def rl_train(
     """Train the reinforcement learning policy and persist the Q-table."""
 
     config = _load_config(config_path, overrides)
+    _configure_determinism_from_config(config)
     base_path = config_path.parent
     scenario = _resolve_scenario(config)
     rl_dict: dict[str, object] = scenario.rl.dict() if scenario else {}
@@ -300,6 +317,7 @@ def viz_plot(
     """Generate a Matplotlib plot for a configured sensor."""
 
     config = _load_config(config_path, overrides)
+    _configure_determinism_from_config(config)
     base_path = config_path.parent
     dataset_path = _resolve_dataset_path(config, base_path, data_path)
     data = _load_dataset(dataset_path)

@@ -11,6 +11,8 @@ import numpy as np
 import yaml  # type: ignore[import-untyped]
 from pydantic import BaseModel
 
+from ..config import DeterminismConfig, configure_determinism
+
 ModelT = TypeVar("ModelT", bound=BaseModel)
 
 
@@ -69,11 +71,10 @@ def apply_overrides(config: dict[str, Any], overrides: Iterable[str]) -> dict[st
 
 
 def set_random_seed(seed: int) -> np.random.Generator:
-    """Seed NumPy's random number generator and return a Generator instance."""
+    """Seed global RNGs using :mod:`smartbuildsim.config` and return a generator."""
 
-    generator = np.random.default_rng(seed)
-    np.random.seed(seed)
-    return generator
+    configure_determinism(DeterminismConfig(seed=seed), force=True)
+    return np.random.default_rng(seed)
 
 
 def model_from_mapping(

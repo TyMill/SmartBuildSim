@@ -27,8 +27,18 @@ class Scenario(BaseModel):
 def _build_office_scenario() -> Scenario:
     """Construct a compact office scenario preset."""
     cluster_sensors = [
-        {"name": "cluster_energy", "type": "energy", "unit": "kWh"},
-        {"name": "cluster_co2", "type": "co2", "unit": "ppm"},
+        {
+            "name": "cluster_energy",
+            "type": "energy",
+            "unit": "kWh",
+            "baseline": 150.0,
+        },
+        {
+            "name": "cluster_co2",
+            "type": "co2",
+            "unit": "ppm",
+            "baseline": 500.0,
+        },
     ]
     building = Building.parse_obj(
         {
@@ -40,7 +50,12 @@ def _build_office_scenario() -> Scenario:
                     "area_sq_m": 550,
                     "sensors": [
                         {"name": "office_temp", "type": "temperature", "unit": "C"},
-                        {"name": "office_energy", "type": "energy", "unit": "kWh"},
+                        {
+                            "name": "office_energy",
+                            "type": "energy",
+                            "unit": "kWh",
+                            "baseline": 170.0,
+                        },
                     ]
                     + [dict(sensor) for sensor in cluster_sensors],
                 },
@@ -53,7 +68,12 @@ def _build_office_scenario() -> Scenario:
                             "type": "temperature",
                             "unit": "C",
                         },
-                        {"name": "conference_co2", "type": "co2", "unit": "ppm"},
+                        {
+                            "name": "conference_co2",
+                            "type": "co2",
+                            "unit": "ppm",
+                            "baseline": 520.0,
+                        },
                     ]
                     + [dict(sensor) for sensor in cluster_sensors],
                 },
@@ -63,7 +83,7 @@ def _build_office_scenario() -> Scenario:
     return Scenario(
         name="office-small",
         building=building,
-        data=DataGeneratorConfig(days=14, freq_minutes=60, seed=42),
+        data=DataGeneratorConfig(days=14, freq_minutes=60, seed=42, normalization="standard"),
         forecasting=ForecastingConfig(sensor="office_energy", horizon=1, lags=[1, 2, 24]),
         anomaly=AnomalyDetectionConfig(sensor="office_energy", contamination=0.05),
         clustering=ClusteringConfig(sensors=["cluster_energy", "cluster_co2"], n_clusters=2),
@@ -83,7 +103,12 @@ def _build_campus_scenario() -> Scenario:
                     "area_sq_m": 800,
                     "sensors": [
                         {"name": "library_temp", "type": "temperature", "unit": "C"},
-                        {"name": "library_energy", "type": "energy", "unit": "kWh"},
+                        {
+                            "name": "library_energy",
+                            "type": "energy",
+                            "unit": "kWh",
+                            "baseline": 160.0,
+                        },
                     ],
                 },
                 {
@@ -91,14 +116,24 @@ def _build_campus_scenario() -> Scenario:
                     "area_sq_m": 400,
                     "sensors": [
                         {"name": "lab_temp", "type": "temperature", "unit": "C"},
-                        {"name": "lab_co2", "type": "co2", "unit": "ppm"},
+                        {
+                            "name": "lab_co2",
+                            "type": "co2",
+                            "unit": "ppm",
+                            "baseline": 480.0,
+                        },
                     ],
                 },
                 {
                     "name": "Dormitory",
                     "area_sq_m": 1200,
                     "sensors": [
-                        {"name": "dorm_energy", "type": "energy", "unit": "kWh"},
+                        {
+                            "name": "dorm_energy",
+                            "type": "energy",
+                            "unit": "kWh",
+                            "baseline": 240.0,
+                        },
                         {"name": "dorm_temp", "type": "temperature", "unit": "C"},
                     ],
                 },
@@ -108,7 +143,7 @@ def _build_campus_scenario() -> Scenario:
     return Scenario(
         name="campus",
         building=building,
-        data=DataGeneratorConfig(days=21, freq_minutes=30, seed=99),
+        data=DataGeneratorConfig(days=21, freq_minutes=30, seed=99, normalization="standard"),
         forecasting=ForecastingConfig(sensor="dorm_energy", horizon=2, lags=[1, 2, 3, 24]),
         anomaly=AnomalyDetectionConfig(sensor="lab_co2", contamination=0.04),
         clustering=ClusteringConfig(

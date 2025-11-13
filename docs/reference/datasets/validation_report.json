@@ -1,0 +1,50 @@
+{
+  "sensors": [
+    {
+      "sensor_generated": "office_energy",
+      "sensor_reference": "meter_0_energy",
+      "distribution": {
+        "mean_generated": 294.9541397069247,
+        "mean_reference": 268.8852083333333,
+        "std_generated": 24.090771245328582,
+        "std_reference": 27.20380265924718,
+        "ks_statistic": 0.3958333333333333
+      },
+      "temporal": {
+        "autocorrelation_generated": {
+          "1": 0.4787759246396614,
+          "6": -0.09453506314751725,
+          "24": 0.2865844541909127
+        },
+        "autocorrelation_reference": {
+          "1": 0.9631038161225417,
+          "6": 0.04085446732880013,
+          "24": 0.48328704835160413
+        },
+        "dtw_distance": 9.687923665237122
+      },
+      "qualitative": "istotna r\u00f3\u017cnica rozk\u0142ad\u00f3w (KS > 0.25)"
+    }
+  ],
+  "correlations": {
+    "generated": {
+      "office_energy": {
+        "office_energy": 1.0
+      }
+    },
+    "reference": {
+      "office_energy": {
+        "office_energy": 1.0
+      }
+    },
+    "delta": {
+      "office_energy": {
+        "office_energy": 0.0
+      }
+    },
+    "frobenius_delta": 0.0
+  },
+  "notes": [
+    "office_energy: istotna r\u00f3\u017cnica rozk\u0142ad\u00f3w (KS > 0.25)"
+  ]
+}

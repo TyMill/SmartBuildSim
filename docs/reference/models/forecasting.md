@@ -1,7 +1,10 @@
 # Forecasting
 
 `smartbuildsim.models.forecasting` trains deterministic regression models for a
-single sensor using scikit-learn pipelines.
+single sensor using scikit-learn pipelines. Moduł można teraz benchmarkować
+przeciwko mocniejszym algorytmom (np. gradient boosting) za pomocą
+`smartbuildsim.evaluation.benchmark.run_regression_benchmark` i skryptu
+`examples/scripts/run_benchmarks.py`.
 
 ## Configuration
 
@@ -21,7 +24,8 @@ with [`smartbuildsim.features.engineering.build_supervised_matrix`](../features.
   sensor and constructs the supervised matrix.
 - `train_forecasting_model(data, config)` fits a `Pipeline` with `StandardScaler`
   and `LinearRegression`, returning a `ForecastingResult` with predictions and
-  RMSE.
+  RMSE. Dodatkowo, benchmarki mogą porównać ten baseline z
+  `HistGradientBoostingRegressor` w ustawieniu wielokrotnych losowań.
 - `ForecastingModel.forecast(history, steps)` generates iterative forecasts using
   the trained pipeline.
 - `persist_model(model, path)` and `load_model(path)` save and restore trained

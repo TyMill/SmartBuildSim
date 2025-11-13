@@ -1,0 +1,341 @@
+{
+  "regression": {
+    "raw": {
+      "baseline": "linear+standard",
+      "metrics": {
+        "mean": {
+          "linear+standard": 21.27033845748838,
+          "linear+minmax": 21.27033845748838,
+          "linear+none": 21.270338457488375,
+          "hist_gbr+standard": 21.72379827656184,
+          "hist_gbr+minmax": 21.72379827656184,
+          "hist_gbr+none": 21.72379827656184
+        },
+        "std": {
+          "linear+standard": 1.573079571559441,
+          "linear+minmax": 1.5730795715594412,
+          "linear+none": 1.573079571559441,
+          "hist_gbr+standard": 2.7346498894917515,
+          "hist_gbr+minmax": 2.7346498894917515,
+          "hist_gbr+none": 2.7346498894917515
+        }
+      },
+      "significance": [
+        {
+          "model": "linear+minmax",
+          "t_stat": 0.41446247249213586,
+          "t_pvalue": 0.6848159574298139,
+          "wilcoxon_stat": 24.0,
+          "wilcoxon_pvalue": 0.7131282524578562
+        },
+        {
+          "model": "linear+none",
+          "t_stat": 1.2104198771788934,
+          "t_pvalue": 0.2461576646118559,
+          "wilcoxon_stat": 26.5,
+          "wilcoxon_pvalue": 0.31419333280720196
+        },
+        {
+          "model": "hist_gbr+standard",
+          "t_stat": -1.0442502089971264,
+          "t_pvalue": 0.3140662690118047,
+          "wilcoxon_stat": 50.0,
+          "wilcoxon_pvalue": 0.5994873046875
+        },
+        {
+          "model": "hist_gbr+minmax",
+          "t_stat": -1.0442502089971264,
+          "t_pvalue": 0.3140662690118047,
+          "wilcoxon_stat": 50.0,
+          "wilcoxon_pvalue": 0.5994873046875
+        },
+        {
+          "model": "hist_gbr+none",
+          "t_stat": -1.0442502089971264,
+          "t_pvalue": 0.3140662690118047,
+          "wilcoxon_stat": 50.0,
+          "wilcoxon_pvalue": 0.5994873046875
+        }
+      ],
+      "scaling": [
+        {
+          "scaler": "standard",
+          "mean_rmse": 21.497068367025108,
+          "std_rmse": 0.32064451306246994
+        },
+        {
+          "scaler": "minmax",
+          "mean_rmse": 21.497068367025108,
+          "std_rmse": 0.32064451306246994
+        },
+        {
+          "scaler": "none",
+          "mean_rmse": 21.497068367025108,
+          "std_rmse": 0.32064451306247244
+        }
+      ]
+    },
+    "normalized": {
+      "baseline": "linear+standard",
+      "metrics": {
+        "mean": {
+          "linear+standard": 0.8205162950810162,
+          "linear+minmax": 0.8205162950810162,
+          "linear+none": 0.820516295081016,
+          "hist_gbr+standard": 0.8380087846301075,
+          "hist_gbr+minmax": 0.8380087846301075,
+          "hist_gbr+none": 0.8380087846301075
+        },
+        "std": {
+          "linear+standard": 0.06068250509992101,
+          "linear+minmax": 0.06068250509992102,
+          "linear+none": 0.060682505099921014,
+          "hist_gbr+standard": 0.10549078957549271,
+          "hist_gbr+minmax": 0.10549078957549271,
+          "hist_gbr+none": 0.10549078957549271
+        }
+      },
+      "significance": [
+        {
+          "model": "linear+minmax",
+          "t_stat": 0.32322996757772704,
+          "t_pvalue": 0.7512984958350034,
+          "wilcoxon_stat": 9.0,
+          "wilcoxon_pvalue": 0.7388826803635273
+        },
+        {
+          "model": "linear+none",
+          "t_stat": 1.14564392373896,
+          "t_pvalue": 0.27114900383166973,
+          "wilcoxon_stat": 2.0,
+          "wilcoxon_pvalue": 0.25683925795785656
+        },
+        {
+          "model": "hist_gbr+standard",
+          "t_stat": -1.0442502149136683,
+          "t_pvalue": 0.31406626636969204,
+          "wilcoxon_stat": 50.0,
+          "wilcoxon_pvalue": 0.5994873046875
+        },
+        {
+          "model": "hist_gbr+minmax",
+          "t_stat": -1.0442502149136683,
+          "t_pvalue": 0.31406626636969204,
+          "wilcoxon_stat": 50.0,
+          "wilcoxon_pvalue": 0.5994873046875
+        },
+        {
+          "model": "hist_gbr+none",
+          "t_stat": -1.0442502149136683,
+          "t_pvalue": 0.31406626636969204,
+          "wilcoxon_stat": 50.0,
+          "wilcoxon_pvalue": 0.5994873046875
+        }
+      ],
+      "scaling": [
+        {
+          "scaler": "standard",
+          "mean_rmse": 0.8292625398555619,
+          "std_rmse": 0.012369057979997291
+        },
+        {
+          "scaler": "minmax",
+          "mean_rmse": 0.8292625398555619,
+          "std_rmse": 0.012369057979997291
+        },
+        {
+          "scaler": "none",
+          "mean_rmse": 0.8292625398555618,
+          "std_rmse": 0.012369057979997449
+        }
+      ]
+    },
+    "impact": {
+      "metric": "rmse",
+      "baseline": "linear+standard",
+      "raw_mean": 21.27033845748838,
+      "normalized_mean": 0.8205162950810162,
+      "delta": -20.44982216240736
+    }
+  },
+  "anomaly": {
+    "raw": {
+      "baseline": "isolation_forest+standard",
+      "metrics": {
+        "mean": {
+          "isolation_forest+standard": 0.1705291005291005,
+          "isolation_forest+minmax": 0.1705291005291005,
+          "isolation_forest+none": 0.1705291005291005,
+          "lof+standard": 0.1,
+          "lof+minmax": 0.1,
+          "lof+none": 0.1
+        },
+        "std": {
+          "isolation_forest+standard": 0.17633925269200978,
+          "isolation_forest+minmax": 0.17633925269200978,
+          "isolation_forest+none": 0.17633925269200978,
+          "lof+standard": 0.15423189668205672,
+          "lof+minmax": 0.15423189668205672,
+          "lof+none": 0.15423189668205672
+        }
+      },
+      "significance": [
+        {
+          "model": "isolation_forest+minmax",
+          "t_stat": NaN,
+          "t_pvalue": NaN,
+          "wilcoxon_stat": 0.0,
+          "wilcoxon_pvalue": NaN
+        },
+        {
+          "model": "isolation_forest+none",
+          "t_stat": NaN,
+          "t_pvalue": NaN,
+          "wilcoxon_stat": 0.0,
+          "wilcoxon_pvalue": NaN
+        },
+        {
+          "model": "lof+standard",
+          "t_stat": 2.032820125049083,
+          "t_pvalue": 0.0614870317831193,
+          "wilcoxon_stat": 1.0,
+          "wilcoxon_pvalue": 0.07961580146011343
+        },
+        {
+          "model": "lof+minmax",
+          "t_stat": 2.032820125049083,
+          "t_pvalue": 0.0614870317831193,
+          "wilcoxon_stat": 1.0,
+          "wilcoxon_pvalue": 0.07961580146011343
+        },
+        {
+          "model": "lof+none",
+          "t_stat": 2.032820125049083,
+          "t_pvalue": 0.0614870317831193,
+          "wilcoxon_stat": 1.0,
+          "wilcoxon_pvalue": 0.07961580146011343
+        }
+      ],
+      "scaling": [
+        {
+          "scaler": "standard",
+          "mean_f1": 0.13526455026455025,
+          "std_f1": 0.04987160525511468
+        },
+        {
+          "scaler": "minmax",
+          "mean_f1": 0.13526455026455025,
+          "std_f1": 0.04987160525511468
+        },
+        {
+          "scaler": "none",
+          "mean_f1": 0.13526455026455025,
+          "std_f1": 0.04987160525511468
+        }
+      ]
+    },
+    "normalized": {
+      "baseline": "isolation_forest+standard",
+      "metrics": {
+        "mean": {
+          "isolation_forest+standard": 0.1705291005291005,
+          "isolation_forest+minmax": 0.1705291005291005,
+          "isolation_forest+none": 0.1705291005291005,
+          "lof+standard": 0.1,
+          "lof+minmax": 0.1,
+          "lof+none": 0.1
+        },
+        "std": {
+          "isolation_forest+standard": 0.17633925269200978,
+          "isolation_forest+minmax": 0.17633925269200978,
+          "isolation_forest+none": 0.17633925269200978,
+          "lof+standard": 0.15423189668205672,
+          "lof+minmax": 0.15423189668205672,
+          "lof+none": 0.15423189668205672
+        }
+      },
+      "significance": [
+        {
+          "model": "isolation_forest+minmax",
+          "t_stat": NaN,
+          "t_pvalue": NaN,
+          "wilcoxon_stat": 0.0,
+          "wilcoxon_pvalue": NaN
+        },
+        {
+          "model": "isolation_forest+none",
+          "t_stat": NaN,
+          "t_pvalue": NaN,
+          "wilcoxon_stat": 0.0,
+          "wilcoxon_pvalue": NaN
+        },
+        {
+          "model": "lof+standard",
+          "t_stat": 2.032820125049083,
+          "t_pvalue": 0.0614870317831193,
+          "wilcoxon_stat": 1.0,
+          "wilcoxon_pvalue": 0.07961580146011343
+        },
+        {
+          "model": "lof+minmax",
+          "t_stat": 2.032820125049083,
+          "t_pvalue": 0.0614870317831193,
+          "wilcoxon_stat": 1.0,
+          "wilcoxon_pvalue": 0.07961580146011343
+        },
+        {
+          "model": "lof+none",
+          "t_stat": 2.032820125049083,
+          "t_pvalue": 0.0614870317831193,
+          "wilcoxon_stat": 1.0,
+          "wilcoxon_pvalue": 0.07961580146011343
+        }
+      ],
+      "scaling": [
+        {
+          "scaler": "standard",
+          "mean_f1": 0.13526455026455025,
+          "std_f1": 0.04987160525511468
+        },
+        {
+          "scaler": "minmax",
+          "mean_f1": 0.13526455026455025,
+          "std_f1": 0.04987160525511468
+        },
+        {
+          "scaler": "none",
+          "mean_f1": 0.13526455026455025,
+          "std_f1": 0.04987160525511468
+        }
+      ]
+    },
+    "impact": {
+      "metric": "f1",
+      "baseline": "isolation_forest+standard",
+      "raw_mean": 0.1705291005291005,
+      "normalized_mean": 0.1705291005291005,
+      "delta": 0.0
+    }
+  },
+  "rl": {
+    "metrics": {
+      "mean": {
+        "q_learning": 0.39582293143465824,
+        "soft_q": 0.533184379252952
+      },
+      "std": {
+        "q_learning": 0.27949528767599335,
+        "soft_q": 0.006640050362918306
+      }
+    },
+    "significance": [
+      {
+        "model": "soft_q",
+        "t_stat": -1.0000000000000002,
+        "t_pvalue": 0.39100221895577053,
+        "wilcoxon_stat": 0.0,
+        "wilcoxon_pvalue": 1.0
+      }
+    ]
+  }
+}

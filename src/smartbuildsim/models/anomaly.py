@@ -9,6 +9,7 @@ import pandas as pd
 from pydantic import BaseModel, Field
 from sklearn.ensemble import IsolationForest
 
+from ..config import resolve_seed
 from ..features.engineering import FeatureConfig, engineer_features
 
 
@@ -46,7 +47,10 @@ def detect_anomalies(data: pd.DataFrame, config: AnomalyDetectionConfig) -> Anom
         feature_columns.append("derivative")
     model = IsolationForest(
         contamination=config.contamination,
-        random_state=config.random_state,
+        random_state=resolve_seed(
+            "models.anomaly.isolation_forest",
+            explicit=config.random_state,
+        ),
     )
     feature_matrix = features[feature_columns]
     model.fit(feature_matrix)

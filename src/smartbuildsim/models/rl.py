@@ -7,6 +7,8 @@ from dataclasses import dataclass
 import numpy as np
 from pydantic import BaseModel, Field
 
+from ..config import create_rng
+
 
 class RLConfig(BaseModel):
     """Configuration for Q-learning training."""
@@ -69,7 +71,7 @@ def _reward(temperature: float, target: float, action: int) -> float:
 def train_policy(config: RLConfig) -> RLTrainingResult:
     """Train a Q-learning policy for simple thermostat control."""
 
-    rng = np.random.default_rng(config.seed)
+    rng = create_rng("models.rl.q_learning.train", explicit=config.seed)
     n_states = 11  # discretised temperature difference from -5..5
     n_actions = 3  # hold, cool, heat
     q_table = np.zeros((n_states, n_actions))
@@ -100,7 +102,11 @@ def train_policy(config: RLConfig) -> RLTrainingResult:
 def evaluate_policy(result: RLTrainingResult, episodes: int = 50) -> float:
     """Evaluate the greedy policy derived from the Q-table."""
 
-    rng = np.random.default_rng(result.config.seed + 1)
+    rng = create_rng(
+        "models.rl.q_learning.eval",
+        explicit=result.config.seed,
+        offset=1,
+    )
     total_reward = 0.0
     for _ in range(episodes):
         temperature = _initial_state(rng)

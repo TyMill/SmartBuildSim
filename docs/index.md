@@ -23,6 +23,7 @@ examples:
 - [BIM schema](reference/bim.md)
 - [Data generation](reference/data.md)
 - [Feature engineering](reference/features.md)
+- [Pipeline architektury](reference/pipeline.md)
 - Models: [Overview](reference/models/index.md),
   [Forecasting](reference/models/forecasting.md),
   [Anomaly detection](reference/models/anomaly.md),

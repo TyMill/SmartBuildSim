@@ -1,5 +1,7 @@
 # Example SmartBuildSim configuration leveraging the ``office-small`` scenario.
 scenario: office-small
+determinism:
+  seed: 123
 paths:
   output_dir: ./outputs
   dataset: ./outputs/dataset.csv
@@ -17,3 +19,6 @@ cluster:
     - cluster_co2
 viz:
   sensor: office_energy
+
+=======
+

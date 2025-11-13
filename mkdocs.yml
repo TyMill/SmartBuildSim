@@ -7,16 +7,20 @@ nav:
   - Reference:
       - BIM schema: reference/bim.md
       - Data generation: reference/data.md
+      - Methods: reference/methods.md
       - Feature engineering: reference/features.md
+      - Pipeline: reference/pipeline.md
       - Models:
           - Overview: reference/models/index.md
           - Forecasting: reference/models/forecasting.md
           - Anomaly detection: reference/models/anomaly.md
           - Clustering: reference/models/clustering.md
           - Reinforcement learning: reference/models/rl.md
+          - Benchmarks: reference/models/benchmark.md
       - Scenarios: reference/scenarios.md
       - Command line interface: reference/cli.md
       - Utilities: reference/utils.md
+      - Determinism: reference/determinism.md
       - Logging: reference/logging.md
       - Visualisation: reference/viz.md
 theme:

@@ -26,7 +26,16 @@ smartbuildsim data generate examples/configs/default.yaml
 ```
 
 The dataset is written to `outputs/dataset.csv`. All generation steps are
-seeded to ensure determinism.
+seeded to ensure determinism. Add an optional ``determinism`` section to your
+YAML to control the global seed used by the CLI:
+
+```yaml
+determinism:
+  seed: 2024
+```
+
+See [Deterministic execution](reference/determinism.md) for component specific
+overrides.
 
 ## 4. Train Models
 
@@ -61,6 +70,10 @@ smartbuildsim data generate examples/configs/default.yaml \
 ```
 
 Overrides apply to nested keys using dotted notation.
+
+For a quick regression test of deterministic behaviour run `./reproduce.sh`,
+which executes the CLI pipeline twice and verifies that the generated datasets
+match byte-for-byte.
 
 ## Next steps
 

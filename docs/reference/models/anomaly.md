@@ -1,7 +1,8 @@
 # Anomaly Detection
 
 `smartbuildsim.models.anomaly` labels anomalous sensor readings with
-IsolationForest.
+IsolationForest, a teraz również wspiera porównania z `LocalOutlierFactor`
+przez `smartbuildsim.evaluation.benchmark.run_anomaly_benchmark`.
 
 ## Configuration
 
@@ -10,7 +11,8 @@ IsolationForest.
 - `sensor`: sensor name to monitor.
 - `contamination`: expected proportion of anomalies (passed to
   `IsolationForest`).
-- `random_state`: ensures deterministic model output.
+- `random_state`: ensures deterministic model output via
+  [`smartbuildsim.config`](../determinism.md).
 - `rolling_window`: forwarded to `FeatureConfig` to control rolling statistics.
 
 Access the derived `FeatureConfig` via the `feature_config` property when calling
@@ -56,4 +58,6 @@ print(flagged[["timestamp", "value", "anomaly_score"]].head())
 ```
 
 See `examples/scripts/run_example.py` for the full pipeline that chains anomaly
-labelling with clustering and plotting.
+labelling with clustering and plotting. Porównawcze eksperymenty (krzyżowa
+walidacja, testy istotności i analiza skalowania) są dostępne w
+`examples/scripts/run_benchmarks.py`.

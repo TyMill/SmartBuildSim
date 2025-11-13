@@ -10,8 +10,9 @@ management, randomness, and filesystem preparation.
 - `load_yaml(path)` and `dump_yaml(data, path)` serialise configuration files.
 - `apply_overrides(config, overrides)` applies dotted `key=value` overrides from
   CLI arguments using YAML parsing semantics.
-- `set_random_seed(seed)` initialises both `numpy.random.default_rng` and the
-  legacy global seed for deterministic behaviour.
+- `set_random_seed(seed)` proxies to the central determinism utilities for
+  backwards compatibility; new code should prefer
+  [`smartbuildsim.config`](determinism.md).
 - `model_from_mapping(model, mapping)` instantiates a Pydantic model from a
   (possibly partial) mapping, falling back to defaults.
 

@@ -10,8 +10,6 @@
 [![Tests: pytest](https://img.shields.io/badge/tests-pytest-0A9EDC.svg)](https://docs.pytest.org/)
 [![PyPI Downloads](https://static.pepy.tech/personalized-badge/smartbuildsim?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/smartbuildsim)
 
-
-
 # SmartBuildSim
 
 SmartBuildSim is a deterministic smart-building simulation toolkit. It provides
@@ -22,8 +20,8 @@ full workflow using YAML configuration files.
 
 ## Features
 
-* **Deterministic synthetic data** – configurable via Pydantic models with
-  repeatable random seeds.
+* **Deterministic synthetic data** – centrally managed via
+  `smartbuildsim.config` with repeatable random seeds.
 * **Rich modelling suite** – forecasting (linear regression with lagged
   features), anomaly detection (IsolationForest), clustering (k-means) and
   reinforcement learning (tabular Q-learning).
@@ -78,6 +76,8 @@ file demonstrates the expected structure:
 
 ```yaml
 scenario: office-small
+determinism:
+  seed: 123
 paths:
   output_dir: ./outputs
   dataset: ./outputs/dataset.csv
@@ -103,6 +103,15 @@ Override any configuration entry directly from the CLI using dotted keys:
 smartbuildsim data generate examples/configs/default.yaml \
   --override data.seed=999 --override data.days=5
 ```
+
+See [Deterministic execution](docs/reference/determinism.md) for component
+specific seed overrides that integrate with the CLI.
+
+## Reproducibility
+
+Run `./reproduce.sh` to execute the default CLI pipeline twice and assert that
+the generated datasets are identical.  This lightweight check is useful both for
+local development and as a CI smoke test.
 
 ## Development
 
