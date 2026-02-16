@@ -2,7 +2,8 @@
 [![Docs](https://img.shields.io/badge/docs-online-brightgreen.svg)](https://tymill.github.io/SmartBuildSim/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![PyPI version](https://img.shields.io/pypi/v/smartbuildsim)](https://pypi.org/project/smartbuildsim/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17187638.svg)](https://doi.org/10.5281/zenodo.17187638)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18656732.svg)](https://doi.org/10.5281/zenodo.18656732)
+
 <!-- Tech meta -->
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue.svg)](https://github.com/TyMill/SmartBuildSim/blob/main/pyproject.toml)
 [![Code Style: Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://docs.astral.sh/ruff/)
